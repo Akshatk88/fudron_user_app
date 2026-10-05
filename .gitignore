@@ -1,0 +1,38 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Node / JS
+node_modules/
+dist/
+build/
+.npm/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+**/build/
+**/ios/Flutter/.last_build_id
+**/ios/Pods/
+**/ios/.symlinks/
+
+# Android Studio / IntelliJ / Eclipse / Editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.gradle/
+**/android/.gradle/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# Logs & temp
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

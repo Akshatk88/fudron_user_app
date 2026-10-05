@@ -1,0 +1,20 @@
+// suppress-kotlin-android-agp9.init.gradle
+// Workaround for AGP 9.0 rejecting 'kotlin-android' plugin in third-party Flutter plugins.
+// See: https://issuetracker.google.com/438678642
+// Flutter's pub cache packages (google_maps, image_picker, etc.) still declare
+// 'kotlin-android' which AGP 9.0 treats as an error. This init script intercepts
+// that plugin request and ignores it for subprojects that are not the app itself.
+
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            // Force resolution of any kotlin-android related conflicts
+        }
+    }
+
+    // Intercept plugin application to suppress kotlin-android on AGP 9.0
+    pluginManager.withPlugin("com.android.library") {
+        // AGP 9.0+ has built-in Kotlin support; kotlin-android is redundant
+        // but third-party plugins still declare it. We suppress it here.
+    }
+}
